@@ -184,3 +184,26 @@ more information [https://github.com/yaocccc/tabbed](https://github.com/yaocccc/
 
   prints the position number of the client before the window title
 
+## Slstatus
+
+slstatus is a status monitor for window managers that use WM_NAME or stdin to fill the status bar.
+
+### Install
+
+```bash
+git clone https://git.suckless.org/slstatus
+cd slstatus
+sudo make clean install
+```
+
+## Slock
+
+Simple X display locker. This is the simplest X screen locker we are aware of. It is stable and quite a lot of people in our community are using it every day when they are out with friends or fetching some food from the local pub.
+
+### Install
+
+```bash
+git clone https://git.suckless.org/slock
+cd slock
+sudo make clean install
+```
