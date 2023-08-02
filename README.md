@@ -139,6 +139,12 @@ _version_ [dwm-onlyquitonempty-20201204-61bb8b2.diff (version 2)](https://dwm.su
 
 On the default keybinding of Mod-Shift-Q, it is possible to press it by accident, closing all your work. This patch makes it so dwm will only exit if no windows are open.
 
+#### [actualfullscreen](https://dwm.suckless.org/patches/fakefullscreen/)
+
+*version* [dwm-actualfullscreen-20211013-cb3f58a.diff](https://dwm.suckless.org/patches/actualfullscreen/dwm-actualfullscreen-20211013-cb3f58a.diff)
+
+Actually toggle fullscreen for a window, instead of toggling the status bar and the monocle layout.
+
 ## Tabbed
 
 ### Install
