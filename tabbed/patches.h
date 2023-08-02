@@ -1,5 +1,5 @@
 // 透明度
-#define ALPHA_PATCH 1
+#define ALPHA_PATCH 0
 
 // 当仅有一个窗口时，隐藏标题栏
 #define AUTOHIDE_PATCH 1
