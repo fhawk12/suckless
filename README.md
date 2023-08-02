@@ -2,7 +2,7 @@
 
 a set of suckless software
 
-## st
+## ST
 
 st is a simple terminal implementation for X.
 
@@ -15,10 +15,6 @@ sudo make clean install
 ```
 
 ### Patch
-
-patch -- apply a diff file to an original
-
-usage: `patch < path/to/patch.diff`
 
 #### [alpha](https://st.suckless.org/patches/alpha/)
 
@@ -90,4 +86,101 @@ An alternative to this patch might be [xbanish](https://github.com/jcs/xbanish) 
 _version_ [st-rightclickpaste-0.8.2.diff](https://st.suckless.org/patches/rightclickpaste/st-rightclickpaste-0.8.2.diff)
 
 Pressing right-click pastes from the primary-selection. If combined with the clipboard-patch right-click pastes from the clipboard. Middle-click does nothing.
+
+#### [dracula](https://st.suckless.org/patches/dracula/)
+
+_version_ [st-dracula-0.8.5.diff](https://st.suckless.org/patches/dracula/st-dracula-0.8.5.diff)
+
+Dracula is a color scheme made by Zeno Rocha based on Solarized. This patch make the Dracula color scheme available for st
+
+## DWM
+
+dwm is a dynamic window manager for X. It manages windows in tiled, monocle and floating layouts. All of the layouts can be applied dynamically, optimising the environment for the application in use and the task performed.
+
+### Install
+
+```bash
+git clone https://git.suckless.org/dwm
+cd dwm
+sudo make clean install
+```
+
+### Patch
+
+#### [alpha](https://dwm.suckless.org/patches/alpha/)
+
+_version_ [dwm-alpha-20230401-348f655.diff](https://dwm.suckless.org/patches/alpha/dwm-alpha-20230401-348f655.diff)
+
+Allow dwm to have translucent bars, while keeping all the text on it opaque, just like the alpha-patch for st.
+
+#### [default tag applications](https://dwm.suckless.org/patches/default_tag_apps/)
+
+_version_ [dwm-default-tag-apps-20210327-61bb8b2.diff](https://dwm.suckless.org/patches/default_tag_apps/dwm-default-tag-apps-20210327-61bb8b2.diff)
+
+This patch is for those who dedicate each tag to certain general tasks. Tag 1 might be the tag used for all terminal tasks, tag 2 might be for internet/browser things etc.
+
+Setting a key to spawndefault will launch the default application set for the tag you are currently on. You can set the applications to be run for each tag in `config.h` as seen here:
+
+```
+*defaulttagapps[] = { "st", "librewolf", "onlyoffice-desktopeditors", "nautilus", NULL, "lutris", "krita", "ardour", "mirage" };
+```
+
+The example keyboard shortcut included is `Mod+s` but of course feel free to change it to whatever you want.
+
+#### [hide vacant tags](https://dwm.suckless.org/patches/hide_vacant_tags/)
+
+_version_ [dwm-hide_vacant_tags-6.3.diff](https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.3.diff)
+
+This patch prevents dwm from drawing tags with no clients (i.e. vacant) on the bar.
+
+#### [onlyquitonempty](https://dwm.suckless.org/patches/onlyquitonempty/)
+
+_version_ [dwm-onlyquitonempty-20201204-61bb8b2.diff (version 2)](https://dwm.suckless.org/patches/onlyquitonempty/dwm-onlyquitonempty-20201204-61bb8b2.diff)
+
+On the default keybinding of Mod-Shift-Q, it is possible to press it by accident, closing all your work. This patch makes it so dwm will only exit if no windows are open.
+
+## Tabbed
+
+### Install
+
+```bash
+git clone https://git.suckless.org/tabbed
+or
+git https://github.com/yaocccc/tabbed.git
+
+cd tabbed
+sudo make clean install
+```
+
+more information [https://github.com/yaocccc/tabbed](https://github.com/yaocccc/tabbed)
+
+### Patch
+
+- alpha
+
+  the alpha patch allows tabbed to handle windows with transparency
+
+- autohide
+
+  hides the tab bar if only one tab is open
+
+- awesomebar
+
+  evenly divides tab bar space between the tabbed windows
+
+- bar-height
+
+  allows the height of the bar to be manually specified
+
+- bottomtabs
+
+  moves the tabs / bar to the bottom of the tabbed window
+
+- center
+
+  centers window titles in tabs
+
+- clientnumber
+
+  prints the position number of the client before the window title
 

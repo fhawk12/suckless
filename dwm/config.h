@@ -12,14 +12,22 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
+static const unsigned int alphas[][3]      = {
+    /*               fg      bg        border*/
+    [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+};
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "" };
+static const char *defaulttagapps[] = { "", NULL, NULL, "", NULL, NULL, NULL, NULL, "clash" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -58,12 +66,25 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+// static const char *termcmd[]  = { "st", NULL };
+
+
+static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
+static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%-", NULL };
+static const char *volup[]    = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%+", NULL };
+static const char *openFirefox[]= { "firefox", NULL };
+static const char *flameshot[]= { "flameshot", "gui", NULL };
+static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "onedark", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
+	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
+	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = flameshot } },
+	{ MODKEY,                       XK_s,      spawndefault,   {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -94,7 +115,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      try_quit,       {0} },
+	{ MODKEY|ShiftMask|ControlMask, XK_q,      quit,           {0} },
 };
 
 /* button definitions */
@@ -114,3 +136,8 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+/* how many windows should be open when quitting? */
+/* on a stock dwm install, this seems to be two; however, you'll have to
+ * change it depending on how many invisible X windows exist */
+/* you can get a list with `xwininfo -tree -root`. */
+static const int EMPTY_WINDOW_COUNT = 2;
