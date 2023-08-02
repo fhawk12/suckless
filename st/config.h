@@ -13,7 +13,7 @@ static char *font2[] = {
 	"Inconsolata for Powerline:pixelsize=16:antialias=true:autohint=true",
 };
 
-static int borderpx = 1;
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
