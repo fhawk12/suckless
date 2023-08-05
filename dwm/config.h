@@ -30,8 +30,8 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "" };
-static const char *defaulttagapps[] = { "", NULL, NULL, "", NULL, NULL, NULL, NULL, "clash" };
+static const char *tags[] = { "1", "2", "3", "4 ", "5", "6", "7", "8 ", "9 " };
+static const char *defaulttagapps[] = { "", NULL, NULL, "", NULL, NULL, NULL, "linuxqq", "clash" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -70,9 +70,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-// static const char *termcmd[]  = { "st", NULL };
- static const char *termcmd[]  = { "kitty", NULL };
 // static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+// static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%-", NULL };
 static const char *volup[]    = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%+", NULL };
@@ -82,7 +82,8 @@ static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "onedark", NULL 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	// { MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
