@@ -198,10 +198,10 @@ static Button buttons[] = {
 /* Put here your aliases */
 static Alias aliases[] = {
     /* Alias        URI */
-    { "github",        "https://github.com" },
     { "cppdoc",        "https://zh.cppreference.com/w/cpp" },
+    { "lcc",           "https://leetcode.cn/" },
+    { "lcu",           "https://leetcode.com/" },
     { "suckless",      "https://suckless.org/" },
     { "chatgpt",       "https://chat-shared2.zhile.io/shared.html?v=2" },
     { "archwiki",      "https://wiki.archlinux.org/" },
-    { "wikipedia",     "https://www.wikipedia.org" }
 };
