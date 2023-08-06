@@ -199,6 +199,7 @@ static Button buttons[] = {
 static Alias aliases[] = {
     /* Alias        URI */
     { "cppdoc",        "https://zh.cppreference.com/w/cpp" },
+    { "bili",          "https://www.bilibili.com/" },
     { "lcc",           "https://leetcode.cn/" },
     { "lcu",           "https://leetcode.com/" },
     { "suckless",      "https://suckless.org/" },
