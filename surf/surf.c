@@ -144,6 +144,11 @@ typedef struct {
 	regex_t re;
 } SiteSpecific;
 
+typedef struct {
+    const char* alias;
+    const char* uri;
+} Alias;
+
 /* Surf */
 static void die(const char *errstr, ...);
 static void usage(void);
@@ -568,6 +573,13 @@ loaduri(Client *c, const Arg *a)
 
 	if (g_strcmp0(uri, "") == 0)
 		return;
+
+    for (int i = 0; i < LENGTH(aliases); i++) {
+        if (strcmp(aliases[i].alias, uri) == 0) {
+            uri = aliases[i].uri;
+            break;
+        }
+    }
 
 	if (g_str_has_prefix(uri, "http://")  ||
 	    g_str_has_prefix(uri, "https://") ||

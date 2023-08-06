@@ -1,0 +1,58 @@
+From 089272be1459bc91800215d39f483a2584ae99cc Mon Sep 17 00:00:00 2001
+From: r4v10l1 <29655971+r4v10l1@users.noreply.github.com>
+Date: Fri, 30 Sep 2022 18:59:15 +0200
+Subject: [PATCH] Alias patch
+
+---
+ config.def.h |  7 +++++++
+ surf.c       | 12 ++++++++++++
+ 2 files changed, 19 insertions(+)
+
+diff --git a/config.def.h b/config.def.h
+index 93cfeeb..2b19183 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -194,3 +194,10 @@ static Button buttons[] = {
+ 	{ OnAny,        0,              9,      clicknavigate,  { .i = +1 },    1 },
+ 	{ OnMedia,      MODKEY,         1,      clickexternplayer, { 0 },       1 },
+ };
++
++/* Put here your aliases */
++static Alias aliases[] = {
++    /* Alias        URI */
++    { "ddg",       "https://duckduckgo.com" },
++    { "wikipedia", "https://www.wikipedia.org" }
++};
+diff --git a/surf.c b/surf.c
+index 474c01b..25f8528 100644
+--- a/surf.c
++++ b/surf.c
+@@ -144,6 +144,11 @@ typedef struct {
+ 	regex_t re;
+ } SiteSpecific;
+ 
++typedef struct {
++    const char* alias;
++    const char* uri;
++} Alias;
++
+ /* Surf */
+ static void die(const char *errstr, ...);
+ static void usage(void);
+@@ -567,6 +572,13 @@ loaduri(Client *c, const Arg *a)
+ 	if (g_strcmp0(uri, "") == 0)
+ 		return;
+ 
++    for (int i = 0; i < LENGTH(aliases); i++) {
++        if (strcmp(aliases[i].alias, uri) == 0) {
++            uri = aliases[i].uri;
++            break;
++        }
++    }
++
+ 	if (g_str_has_prefix(uri, "http://")  ||
+ 	    g_str_has_prefix(uri, "https://") ||
+ 	    g_str_has_prefix(uri, "file://")  ||
+-- 
+2.37.3
+

@@ -71,8 +71,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 // static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
-// static const char *termcmd[]  = { "alacritty", NULL };
+// static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%-", NULL };
 static const char *volup[]    = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%+", NULL };
@@ -82,8 +82,8 @@ static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "onedark", NULL 
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	// { MODKEY,                       XK_p,      spawn,          {.v = rofi } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
