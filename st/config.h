@@ -5,15 +5,15 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "FiraCode Nerd Font:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Source Code Pro:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-	"Noto Color Emoji:pixelsize=12:antialias=true:autohint=true",
-	"Symbols Nerd Font Mono:pixelsize=12:antialias=true:autohint=true",
-	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
+	"Noto Color Emoji:pixelsize=10:antialias=true:autohint=true",
+	"Symbols Nerd Font Mono:pixelsize=10:antialias=true:autohint=true",
+	"Inconsolata for Powerline:pixelsize=10:antialias=true:autohint=true",
 };
 
-static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
