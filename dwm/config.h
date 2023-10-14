@@ -7,7 +7,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = {
-    "monospace:size=10",
+    "Maple Mono:size=10",
     "WenQuanYi Micro Hei:size=10:tyle=Regular:antialias=true:autohint=true",
     "Symbols Nerd Font:pixelsize=12:type=2048-em:antialias=true:autohint=true",
 };
@@ -41,7 +41,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	// { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       2,       0,           -1 },
 };
 
 /* layout(s) */
@@ -71,21 +72,21 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
-// static const char *termcmd[]  = { "kitty", NULL };
+// static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 // static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%-", NULL };
 static const char *volup[]    = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%+", NULL };
-static const char *openFirefox[]= { "firefox", NULL };
+// static const char *openFirefox[]= { "firefox", NULL };
 static const char *flameshot[]= { "flameshot", "gui", NULL };
 static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "onedark", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_r,      spawn,          {.v = rofi } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	// { MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
