@@ -7,7 +7,7 @@
  */
 // static char *font = "Source Code Pro:pixelsize=16:antialias=true:autohint=true";
 // static char *font = "Hasklig:pixelsize=16:antialias=true:autohint=true";
-static char *font = "Cascadia Code:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Maple Mono:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
 	"Noto Color Emoji:pixelsize=10:antialias=true:autohint=true",
