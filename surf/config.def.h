@@ -194,15 +194,3 @@ static Button buttons[] = {
 	{ OnAny,        0,              9,      clicknavigate,  { .i = +1 },    1 },
 	{ OnMedia,      MODKEY,         1,      clickexternplayer, { 0 },       1 },
 };
-
-/* Put here your aliases */
-static Alias aliases[] = {
-    /* Alias        URI */
-    { "cppdoc",        "https://zh.cppreference.com/w/cpp" },
-    { "bili",          "https://www.bilibili.com/" },
-    { "lcc",           "https://leetcode.cn/" },
-    { "lcu",           "https://leetcode.com/" },
-    { "suckless",      "https://suckless.org/" },
-    { "chatgpt",       "https://chat-shared2.zhile.io/shared.html?v=2" },
-    { "archwiki",      "https://wiki.archlinux.org/" },
-};
