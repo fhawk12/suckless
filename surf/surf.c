@@ -37,7 +37,7 @@
 #define LENGTH(x)               (sizeof(x) / sizeof(x[0]))
 #define CLEANMASK(mask)         (mask & (MODKEY|GDK_SHIFT_MASK))
 
-enum { AtomFind, AtomGo, AtomUri, AtomUTF8, AtomLast };
+enum { AtomFind, AtomSearch, AtomGo, AtomUri, AtomLast };
 
 enum {
 	OnDoc   = WEBKIT_HIT_TEST_RESULT_CONTEXT_DOCUMENT,
@@ -48,6 +48,12 @@ enum {
 	OnBar   = WEBKIT_HIT_TEST_RESULT_CONTEXT_SCROLLBAR,
 	OnSel   = WEBKIT_HIT_TEST_RESULT_CONTEXT_SELECTION,
 	OnAny   = OnDoc | OnLink | OnImg | OnMedia | OnEdit | OnBar | OnSel,
+};
+
+enum {
+	CustomProxy = WEBKIT_NETWORK_PROXY_MODE_CUSTOM,
+	SystemProxy = WEBKIT_NETWORK_PROXY_MODE_DEFAULT,
+	NoProxy		= WEBKIT_NETWORK_PROXY_MODE_NO_PROXY,
 };
 
 typedef enum {
@@ -72,6 +78,9 @@ typedef enum {
 	KioskMode,
 	LoadImages,
 	MediaManualPlay,
+ 	ProxyIgnoreHosts,
+ 	ProxyMode,
+ 	ProxyUrl,
 	PreferredLanguages,
 	RunInFullscreen,
 	ScrollBars,
@@ -238,6 +247,7 @@ static void togglefullscreen(Client *c, const Arg *a);
 static void togglecookiepolicy(Client *c, const Arg *a);
 static void toggleinspector(Client *c, const Arg *a);
 static void find(Client *c, const Arg *a);
+static void search(Client *c, const Arg *a);
 
 /* Buttons */
 static void clicknavigate(Client *c, const Arg *a, WebKitHitTestResult *h);
@@ -343,6 +353,7 @@ setup(void)
 
 	/* atoms */
 	atoms[AtomFind] = XInternAtom(dpy, "_SURF_FIND", False);
+	atoms[AtomSearch] = XInternAtom(dpy, "_SURF_SEARCH", False);
 	atoms[AtomGo] = XInternAtom(dpy, "_SURF_GO", False);
 	atoms[AtomUri] = XInternAtom(dpy, "_SURF_URI", False);
 	atoms[AtomUTF8] = XInternAtom(dpy, "UTF8_STRING", False);
@@ -597,6 +608,19 @@ loaduri(Client *c, const Arg *a)
 		webkit_web_view_load_uri(c->view, url);
 		updatetitle(c);
 	}
+
+	g_free(url);
+}
+
+void
+search(Client *c, const Arg *a)
+{
+	Arg arg;
+	char *url;
+
+	url = g_strdup_printf(searchurl, a->v);
+	arg.v = url;
+	loaduri(c, &arg);
 
 	g_free(url);
 }
@@ -1110,6 +1134,7 @@ newview(Client *c, WebKitWebView *rv)
 	WebKitWebContext *context;
 	WebKitCookieManager *cookiemanager;
 	WebKitUserContentManager *contentmanager;
+	WebKitNetworkProxySettings *proxysettings;
 
 	/* Webview */
 	if (rv) {
@@ -1170,6 +1195,28 @@ newview(Client *c, WebKitWebView *rv)
 		webkit_web_context_set_tls_errors_policy(context,
 		    curconfig[StrictTLS].val.i ? WEBKIT_TLS_ERRORS_POLICY_FAIL :
 		    WEBKIT_TLS_ERRORS_POLICY_IGNORE);
+		/* proxy */
+		switch (curconfig[ProxyMode].val.i) {
+			case CustomProxy:
+				proxysettings = webkit_network_proxy_settings_new(
+					curconfig[ProxyUrl].val.v,
+					curconfig[ProxyIgnoreHosts].val.v);
+				webkit_web_context_set_network_proxy_settings(context,
+					CustomProxy,
+					proxysettings);
+				break;
+			case NoProxy:
+				webkit_web_context_set_network_proxy_settings(context,
+					NoProxy,
+					NULL);
+				break;
+			case SystemProxy:
+			default:
+				webkit_web_context_set_network_proxy_settings(context,
+					SystemProxy,
+					proxysettings);
+				break;
+		}
 		/* disk cache */
 		webkit_web_context_set_cache_model(context,
 		    curconfig[DiskCache].val.i ? WEBKIT_CACHE_MODEL_WEB_BROWSER :
@@ -1332,6 +1379,9 @@ processx(GdkXEvent *e, GdkEvent *event, gpointer d)
 				find(c, NULL);
 
 				return GDK_FILTER_REMOVE;
+			} else if (ev->atom == atoms[AtomSearch]) {
+				a.v = getatom(c, AtomSearch);
+				search(c, &a);
 			} else if (ev->atom == atoms[AtomGo]) {
 				a.v = getatom(c, AtomGo);
 				loaduri(c, &a);
@@ -2153,7 +2203,11 @@ main(int argc, char *argv[])
 	if (argc > 0)
 		arg.v = argv[0];
 	else
+#ifdef HOMEPAGE
+		arg.v = HOMEPAGE;
+#else
 		arg.v = "about:blank";
+#endif
 
 	setup();
 	c = newclient(NULL);
