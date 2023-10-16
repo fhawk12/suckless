@@ -72,6 +72,5 @@ static const struct arg args[] = {
 	 {run_command	, "Volume %s |"	  , "amixer -c Generic_1 sget Master | awk -F \"[][]\" '{print $2}' | awk '$1=$1' " },
 	 {ram_perc	, "Ram %s%% |"    , NULL },
 	 {cpu_perc     , "CPU %s%% |"    , NULL },
-	 // {datetime	, "%s |"	  , "%F week %u %T" },
    {datetime	, "%s |"	  , "%F %a %b %T" },
 };
