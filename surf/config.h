@@ -39,7 +39,7 @@ static Parameter defconfig[ParameterLast] = {
 	[MediaManualPlay]     =       { { .i = 1 },     },
 	[PreferredLanguages]  =       { { .v = (char *[]){ NULL } }, },
 	[ProxyIgnoreHosts]    =       { { .v = (char *[]){ NULL } }, },
-	[ProxyMode]           =       { { .i = CustomProxy }, }, //CustomProxy, SystemProxy, NoProxy
+	[ProxyMode]           =       { { .i = SystemProxy }, }, //CustomProxy, SystemProxy, NoProxy
 	[ProxyUrl]            =       { { .v = (char *)"http://127.0.0.1:7890"  }, },
 	[RunInFullscreen]     =       { { .i = 0 },     },
 	[ScrollBars]          =       { { .i = 1 },     },
