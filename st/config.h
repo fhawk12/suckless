@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char *font = "Source Code Pro:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Operator Mono Lig:pixelsize=16:antialias=true:autohint=true";
 // static char *font = "Hasklig:pixelsize=16:antialias=true:autohint=true";
-static char *font = "Maple Mono:pixelsize=16:antialias=true:autohint=true";
+// static char *font = "Maple Mono:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
 	"Noto Color Emoji:pixelsize=10:antialias=true:autohint=true",
@@ -114,32 +114,32 @@ float alpha = 0.8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
     /* 8 normal colors */
-    "#2b4252", /* black   */
-    "#bf616a", /* red     */
-    "#a3be8c", /* green   */
-    "#ebcb8b", /* yellow  */
-    "#81a1c1", /* blue    */
-    "#b48ead", /* magenta */
-    "#88c0d0", /* cyan    */
-    "#e5e9f0", /* white   */
+    [0] = "#000000", /* black   */
+    [1] = "#ff5555", /* red     */
+    [2] = "#50fa7b", /* green   */
+    [3] = "#f1fa8c", /* yellow  */
+    [4] = "#bd93f9", /* blue    */
+    [5] = "#ff79c6", /* magenta */
+    [6] = "#8be9fd", /* cyan    */
+    [7] = "#bbbbbb", /* white   */
                                   
     /* 8 bright colors */
-    "#4c566a", /* black   */
-    "#bf616a", /* red     */
-    "#a3be8c", /* green   */
-    "#ebcb8b", /* yellow  */
-    "#81a1c1", /* blue    */
-    "#b48ead", /* magenta */
-    "#8fbcbb", /* cyan    */
-    "#eceff4", /* white   */
+    [8]  = "#44475a", /* black   */
+    [9]  = "#ff5555", /* red     */
+    [10] = "#50fa7b", /* green   */
+    [11] = "#f1fa8c", /* yellow  */
+    [12] = "#bd93f9", /* blue    */
+    [13] = "#ff79c6", /* magenta */
+    [14] = "#8be9fd", /* cyan    */
+    [15] = "#ffffff", /* white   */
                                    
     /* special colors */
     [256] = "#282a36", /* background */
     [257] = "#f8f8f2", /* foreground */
 
 	/* more colors can be added after 255 to use with DefaultXX */
-    "#d8dee9", /* default foreground colour */
-    "#2e3440", /* default background colour */
+    [256] = "#282a36", /* background */
+    [257] = "#f8f8f2", /* foreground */
 };
 
 

@@ -9,7 +9,9 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int focusonwheel       = 0;
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = {
-    "Maple Mono:size=10",
+    // "RobotMono Nerd Font:size=10",
+    "Operator Mono Lig:size=12",
+    // "Maple Mono:size=10",
     "WenQuanYi Micro Hei:size=10:tyle=Regular:antialias=true:autohint=true",
     "Symbols Nerd Font:pixelsize=12:type=2048-em:antialias=true:autohint=true",
 };
@@ -83,7 +85,7 @@ static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Ma
 static const char *volup[]    = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%+", NULL };
 // static const char *openFirefox[]= { "firefox", NULL };
 static const char *flameshot[]= { "flameshot", "gui", NULL };
-static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "onedark", NULL };
+static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "tokyonight", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
