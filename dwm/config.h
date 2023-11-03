@@ -31,13 +31,13 @@ static const char *colors[][3]      = {
 };
 static const unsigned int alphas[][3]      = {
     /*               fg      bg        border*/
-    [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+  [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *defaulttagapps[] = { "", NULL, NULL, "", NULL, NULL, NULL, NULL, NULL };
+static const char *defaulttagapps[] = { NULL, NULL, NULL, "firefox", NULL, NULL, NULL, NULL, NULL };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -73,6 +73,8 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+static const int dmenudesktop = 1; /* 1 means dmenu will use only desktop files from [/usr/share/applications/] */
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
