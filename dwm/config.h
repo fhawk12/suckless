@@ -2,7 +2,7 @@
 
 /* appearance */
 #include <X11/X.h>
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -26,7 +26,7 @@ static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_cyan,  "#00ff99"  },
 	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
 };
 static const unsigned int alphas[][3]      = {
@@ -91,8 +91,8 @@ static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "tokyonight", NU
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	// { MODKEY,                       XK_p,      spawn,          {.v = rofi } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	// { MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
