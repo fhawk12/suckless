@@ -2,7 +2,7 @@
 
 /* appearance */
 #include <X11/X.h>
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -77,8 +77,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-// static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
+// static const char *termcmd[]  = { "kitty", NULL };
 // static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%-", NULL };
@@ -89,8 +89,8 @@ static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "tokyonight", NU
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
-	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	// { MODKEY,                       XK_p,      spawn,          {.v = rofi } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	// { MODKEY,                       XK_o,      spawn,          {.v = openFirefox } },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
