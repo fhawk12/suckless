@@ -5,17 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char *font = "FiraCode Nerd Font Mono:pixelsize=16:antialias=true:autohint=true";
-// static char *font = "Hasklig:pixelsize=16:antialias=true:autohint=true";
 static char *font = "Maple Mono:pixelsize=16:antialias=true:autohint=true";
-/* Spare fonts */
-static char *font2[] = {
-	"Noto Color Emoji:pixelsize=10:antialias=true:autohint=true",
-	"Symbols Nerd Font Mono:pixelsize=10:antialias=true:autohint=true",
-	"Inconsolata for Powerline:pixelsize=10:antialias=true:autohint=true",
-};
-
-static int borderpx = 0;
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -66,12 +57,6 @@ static double minlatency = 8;
 static double maxlatency = 33;
 
 /*
- * Synchronized-Update timeout in ms
- * https://gitlab.com/gnachman/iterm2/-/wikis/synchronized-updates-spec
- */
-static uint su_timeout = 200;
-
-/*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
  * attribute.
  */
@@ -108,48 +93,43 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-/* bg opacity */
-float alpha = 0.8;
-
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-    /* 8 normal colors */
-    [0] = "#000000", /* black   */
-    [1] = "#ff5555", /* red     */
-    [2] = "#50fa7b", /* green   */
-    [3] = "#f1fa8c", /* yellow  */
-    [4] = "#bd93f9", /* blue    */
-    [5] = "#ff79c6", /* magenta */
-    [6] = "#8be9fd", /* cyan    */
-    [7] = "#bbbbbb", /* white   */
-                                  
-    /* 8 bright colors */
-    [8]  = "#44475a", /* black   */
-    [9]  = "#ff5555", /* red     */
-    [10] = "#50fa7b", /* green   */
-    [11] = "#f1fa8c", /* yellow  */
-    [12] = "#bd93f9", /* blue    */
-    [13] = "#ff79c6", /* magenta */
-    [14] = "#8be9fd", /* cyan    */
-    [15] = "#ffffff", /* white   */
-                                   
-    /* special colors */
-    [256] = "#282a36", /* background */
-    [257] = "#f8f8f2", /* foreground */
+	/* 8 normal colors */
+	"#3b4252", /* black   */
+	"#bf616a", /* red     */
+	"#a3be8c", /* green   */
+	"#ebcb8b", /* yellow  */
+	"#81a1c1", /* blue    */
+	"#b48ead", /* magenta */
+	"#88c0d0", /* cyan    */
+	"#e5e9f0", /* white   */
+
+	/* 8 bright colors */
+	"#4c566a", /* black   */
+	"#bf616a", /* red     */
+	"#a3be8c", /* green   */
+	"#ebcb8b", /* yellow  */
+	"#81a1c1", /* blue    */
+	"#b48ead", /* magenta */
+	"#8fbcbb", /* cyan    */
+	"#eceff4", /* white   */
+
+	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-    [256] = "#282a36", /* background */
-    [257] = "#f8f8f2", /* foreground */
+	"#d8dee9", /* default foreground colour */
+	"#2e3440", /* default background colour */
 };
 
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor
+ * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 257;
-unsigned int defaultbg = 256;
-unsigned int defaultcs = 257;
+unsigned int defaultfg = 256;
+unsigned int defaultbg = 257;
+unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
 /*
@@ -164,15 +144,7 @@ static unsigned int defaultrcs = 257;
  * 6: steady bar ("|")
  * 7: blinking st cursor
  * 8: steady st cursor
- *
- *
- * Colors used, when the specific fg == defaultfg. So in reverse mode this
- * will reverse too. Another logic would only make the simple feature too
- * complex.
  */
-
-unsigned int defaultitalic = 7;
-unsigned int defaultunderline = 7;
 static unsigned int cursorstyle = 1;
 static Rune stcursor = 0x2603; /* snowman ("☃") */
 
@@ -238,10 +210,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ MODKEY,               XK_u,           kscrollup,      {.i =  1} },
-	{ MODKEY,               XK_n,         kscrolldown,      {.i =  1} },
-	{ MODKEY|ControlMask,   XK_u,           kscrollup,      {.i = -1} },
-	{ MODKEY|ControlMask,   XK_n,         kscrolldown,      {.i = -1} },
 };
 
 /*
