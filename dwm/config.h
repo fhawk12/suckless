@@ -2,6 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 10;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -87,7 +88,7 @@ static const char *rofi[]= { "rofi", "-show", "drun", "-theme", "tokyonight", NU
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = rofi } },
-	{ MODKEY|ShiftMask,             XK_o,      spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = flameshot } },
@@ -115,6 +116,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY,                       XK_s,      show,           {0} },
 	{ MODKEY|ShiftMask,             XK_s,      showall,        {0} },
 	{ MODKEY|ShiftMask,             XK_h,      hide,           {0} },
@@ -127,7 +131,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask|ControlMask, XK_q,      quit,           {0} },
 };
 
 /* button definitions */
