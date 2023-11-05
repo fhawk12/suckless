@@ -10,7 +10,7 @@ static const int focusonwheel       = 0;
 static const char *fonts[] = {
     "Maple Mono:size=12",
     // "Operator Mono Lig:size=12",
-    "WenQuanYi Micro Hei:size=10:tyle=Regular:antialias=true:autohint=true",
+    "WenQuanYi Micro Hei:size=12:tyle=Regular:antialias=true:autohint=true",
     "Symbols Nerd Font:pixelsize=12:type=2048-em:antialias=true:autohint=true",
 };
 static const char dmenufont[]       = "monospace:size=10";
@@ -54,8 +54,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "tile",      tile },    /* first entry is default */
+	{ "float",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
