@@ -92,7 +92,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Left,   spawn,          {.v = voldown } },
 	{ MODKEY|ShiftMask,             XK_Right,  spawn,          {.v = volup } },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = flameshot } },
-	// { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
