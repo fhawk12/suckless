@@ -8,7 +8,9 @@
 static char *font = "Maple Mono:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-    "Symbols Nerd Font:pixelsize=12:antialias=true:autohint=true",
+    "WenQuanYi Micro Hei Mono:pixelsize=16:antialias=true:autohint=true",
+    // "Symbols Nerd Font:pixelsize=13:antialias=true:autohint=true",
+    // "NotoColorEmoji:size=12:antialias=true:autohint=true",
 /*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
 /*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
 };
