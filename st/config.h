@@ -5,7 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Hack:pixelsize=16:antialias=true:autohint=true";
+// static char *font = "Hack:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Iosevka Custom:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
     "WenQuanYi Micro Hei:size=16:tyle=Regular:antialias=true:autohint=true",
