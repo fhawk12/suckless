@@ -6,9 +6,9 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "JetBrainsMono Nerd Font:pixelsize=14:antialias=true:autohint=true";
-static char *font = "Iosevka Custom:pixelsize=16:antialias=true:autohint=true";
+static char *font = "Iosevka Custom:pixelsize=16:antialias=true:autohint=true:weight=semibold";
 
-static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
