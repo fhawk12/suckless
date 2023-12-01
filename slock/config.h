@@ -39,9 +39,6 @@ static const int timeoffset = 30;
 /* command to be run after [timeoffset] seconds has passed */
 static const char *command = "/usr/bin/xset dpms force off";
 
-/* time in seconds before the monitor shuts down */
-static const int monitortime = 5;
-
 /* default message */
 // static const char * message = "Suckless: Software that sucks less.";
 static const char * message = "";
