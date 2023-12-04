@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const char *fonts[] = {
     "Cascadia Mono:size=12",
-    // "Operator Mono Lig:size=12",
+    // "monospace:size=12",
     "WenQuanYi Micro Hei:size=12:tyle=Regular:antialias=true:autohint=true",
     "Symbols Nerd Font:pixelsize=12:type=2048-em:antialias=true:autohint=true",
 };
@@ -69,6 +69,9 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+static const char *autostartscript = "~/.config/suckless/dwm/autostart.sh";
+// static const char *statusbarscript = "~/.config/dwm/statusbar/statusbar.sh"; // todo
 
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
