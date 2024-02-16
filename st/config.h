@@ -5,8 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-// static char *font = "Iosevka Custom:pixelsize=16:antialias=true:autohint=true:weight=medium";
-static char *font = "MapleMono:pixelsize=16:antialias=true:autohint=true:weight=medium";
+// static char *font = "MapleMono:pixelsize=16:antialias=true:autohint=true:weight=medium";
+static char *font = "Hack Nerd Font:pixelsize=16:antialias=true:autohint=true:weight=medium";
+// static char *font = "Comic Code:pixelsize=16:antialias=true:autohint=true:weight=medium";
 static int borderpx = 2;
 
 /*
