@@ -3,5 +3,5 @@
 fcitx5 &
 dunst &
 clash-verge &
-picom &
+# picom &
 feh --bg-fill ~/wallpaper/44.png &

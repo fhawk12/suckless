@@ -8,10 +8,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int focusonwheel       = 0;
 static const char *fonts[] = {
-    "Source Code Pro:size=12",
+    "Hack Nerd Font:size=14",
+    "Source Code Pro:size=14",
     // "monospace:size=12",
-    "WenQuanYi Micro Hei:size=12:tyle=Regular:antialias=true:autohint=true",
-    "Symbols Nerd Font:pixelsize=12:type=2048-em:antialias=true:autohint=true",
+    "WenQuanYi Micro Hei:size=14:tyle=Regular:antialias=true:autohint=true",
+    "Symbols Nerd Font:pixelsize=14:type=2048-em:antialias=true:autohint=true",
 };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
