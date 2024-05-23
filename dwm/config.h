@@ -22,11 +22,33 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
+// static const char *colors[][3]      = {
+// 	/*               fg         bg         border   */
+// 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+// 	[SchemeSel]  = { col_gray4, col_cyan,  "#00ff99"  },
+// 	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+// };
+
+
+// rose-pine moon
+static const char col_base[]        = "#232136";
+static const char col_surface[]     = "#2a273f";
+static const char col_overlay[]     = "#393552";
+static const char col_muted[]       = "#6e6a86";
+static const char col_subtle[]      = "#908caa";
+static const char col_text[]        = "#e0def4";
+static const char col_love[]        = "#eb6f92";
+static const char col_gold[]        = "#f6c177";
+static const char col_rose[]        = "#ea9a97";
+static const char col_pine[]        = "#3e8fb0";
+static const char col_foam[]        = "#9ccfd8";
+static const char col_iris[]        = "#c4a7e7";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  "#00ff99"  },
-	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+	[SchemeNorm] = { col_text, col_base, col_base },
+	[SchemeSel]  = { col_base, col_iris,  col_rose  },
+	[SchemeHid]  = { col_rose,  col_base, col_base  },
 };
 static const unsigned int alphas[][3]      = {
     /*               fg      bg        border*/
@@ -80,8 +102,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-// static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "tabbed", "-n", "st", "-c", "-r", "2", "st", "-w","''", NULL };
+/* static const char *termcmd[]  = { "kitty", NULL }; */
 
 /*  volume  */
 static const char *voldown[]  = { "amixer", "-c", "Generic_1", "-qM", "set", "Master", "2%-", NULL };
