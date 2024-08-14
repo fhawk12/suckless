@@ -1,0 +1,8 @@
+#! /bin/bash
+
+fcitx5 &
+dunst &
+picom &
+feh --bg-fill ~/Wallpaper/57.png &
+slstatus &
+
