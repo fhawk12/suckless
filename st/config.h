@@ -5,8 +5,14 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Operator Mono:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Operator Mono Lig:pixelsize=20:antialias=true:autohint=true";
+/*static char *font = "Iosevka:pixelsize=20:antialias=true:autohint=true";*/
 static int borderpx = 2;
+
+/* disable bold, italic and roman fonts globally */
+int disablebold = 1;
+int disableitalic = 1;
+int disableroman = 1;
 
 /*
  * What program is execed by st depends of these precedence rules:
