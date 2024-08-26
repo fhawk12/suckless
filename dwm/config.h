@@ -90,7 +90,7 @@ Autostarttag autostarttaglist[] = {
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshot } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_n,      focusstackvis,  {.i = +1 } },
@@ -128,15 +128,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-  /*TAGKEYS(                        XK_ampersand,              0)*/
-  /*TAGKEYS(                        XK_bracketleft,            1)*/
-  /*TAGKEYS(                        XK_braceleft,              2)*/
-  /*TAGKEYS(                        XK_braceright,             3)*/
-  /*TAGKEYS(                        XK_parenleft,              4)*/
-  /*TAGKEYS(                        XK_equal,                  5)*/
-  /*TAGKEYS(                        XK_asterisk,               6)*/
-  /*TAGKEYS(                        XK_parenright,             7)*/
-  /*TAGKEYS(                        XK_plus,                   8)*/
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
