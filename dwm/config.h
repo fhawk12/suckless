@@ -66,7 +66,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* autostart */
-static const char *autostartscript = "~/Coding/projects/suckless/dwm/autostart";
+static const char *autostartscript = "~/.config/suckless/dwm/autostart";
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */

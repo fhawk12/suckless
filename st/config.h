@@ -5,8 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
+/*static char *font = "Source Code Pro:pixelsize=20:antialias=true:autohint=true";*/
+static char *font = "RobotoMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
+/*static char *font = "VictorMono Nerd Font:pixelsize=20:antialias=true:autohint=true";*/
 /*static char *font = "Operator Mono Lig Book:pixelsize=20:antialias=true:autohint=true";*/
-static char *font = "JetBrainsMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
+/*static char *font = "JetBrainsMono Nerd Font:pixelsize=20:antialias=true:autohint=true";*/
 /*static char *font = "Iosevka:pixelsize=20:antialias=true:autohint=true";*/
 static int borderpx = 2;
 
