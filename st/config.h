@@ -5,10 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "RobotoMono Nerd Font:pixelsize=20:antialias=true:autohint=true";
+/*static char *font = "RobotoMono Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";*/
+static char *font = "Hack Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
 /*static char *font = "Operator Mono Lig Book:pixelsize=20:antialias=true:autohint=true";*/
-/*static char *font = "JetBrainsMono Nerd Font:pixelsize=20:antialias=true:autohint=true";*/
-/*static char *font = "Iosevka:pixelsize=20:antialias=true:autohint=true";*/
 static int borderpx = 0;
 
 /* disable bold, italic and roman fonts globally */
@@ -147,7 +146,7 @@ unsigned int defaultfg = 259;
 unsigned int defaultbg = 258;
 unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
-unsigned int bg = 258, bgUnfocused = 16;
+unsigned int bg = 258, bgUnfocused = 258;
 
 /*
  * Default shape of cursor

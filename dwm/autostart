@@ -1,8 +1,8 @@
-#! /bin/bash
+#!/bin/sh
 
 fcitx5 &
 dunst &
 picom &
-feh --bg-fill ~/Wallpaper/36.png &
+feh --bg-fill ~/wallpaper/36.png &
 slstatus &
 
