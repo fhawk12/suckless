@@ -5,15 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-/*static char *font = "RobotoMono Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";*/
+// static char *font = "RobotoMono Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";
 static char *font = "Hack Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
-/*static char *font = "Operator Mono Lig Book:pixelsize=20:antialias=true:autohint=true";*/
-static int borderpx = 0;
+// static char *font = "Comic Code:pixelsize=20:antialias=true:autohint=true";
+// static char *font = "Operator Mono Lig Book:pixelsize=20:antialias=true:autohint=true";
 
-/* disable bold, italic and roman fonts globally */
-int disablebold = 1;
-int disableitalic = 1;
-int disableroman = 1;
+static int borderpx = 2;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -101,52 +98,58 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.9, alphaUnfocused = 0.7;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-
-	[0] = "#323437",
-	[1] = "#ff5454",
-	[2] = "#8cc85f",
-	[3] = "#e3c78a",
-	[4] = "#80a0ff",
-	[5] = "#d183e8",
-	[6] = "#79dac8",
-	[7] = "#a1aab8",
-
-	/* 8 bright colors */
-
-	[8] = "#7c8f8f",
-	[9] = "#ff5189",
-	[10] = "#36c692",
-	[11] = "#bfbf97",
-	[12] = "#74b2ff",
-	[13] = "#ae81ff",
-	[14] = "#85dc85",
-	[15] = "#e2637f",
-
-	[255] = 0,
+    /* 8 normal colors */
+    [0] = "#000000", /* black   */
+    [1] = "#ff5555", /* red     */
+    [2] = "#50fa7b", /* green   */
+    [3] = "#f1fa8c", /* yellow  */
+    [4] = "#bd93f9", /* blue    */
+    [5] = "#ff79c6", /* magenta */
+    [6] = "#8be9fd", /* cyan    */
+    [7] = "#bbbbbb", /* white   */
+                                  
+    /* 8 bright colors */
+    [8]  = "#44475a", /* black   */
+    [9]  = "#ff5555", /* red     */
+    [10] = "#50fa7b", /* green   */
+    [11] = "#f1fa8c", /* yellow  */
+    [12] = "#bd93f9", /* blue    */
+    [13] = "#ff79c6", /* magenta */
+    [14] = "#8be9fd", /* cyan    */
+    [15] = "#ffffff", /* white   */
+                                   
+    /* special colors */
+    [256] = "#282a36", /* background */
+    [257] = "#f8f8f2", /* foreground */
 
 	/* more colors can be added after 255 to use with DefaultXX */
-
-    [256] = "#282a36", 
-    [257] = "#f8f8f2",
-    [258] = "#080808",
-    [259]= "#eeeeee",
+	"#cccccc",
+	"#555555",
+	"gray90", /* default foreground colour */
+	"black", /* default background colour */
 };
 
 
 /*
  * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
+ * foreground, background, cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 258;
-unsigned int defaultcs = 256;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 257;
 static unsigned int defaultrcs = 257;
-unsigned int bg = 258, bgUnfocused = 258;
+
+/*
+ * Colors used, when the specific fg == defaultfg. So in reverse mode this
+ * will reverse too. Another logic would only make the simple feature too
+ * complex.
+ */
+unsigned int defaultitalic = 7;
+unsigned int defaultunderline = 7;
 
 /*
  * Default shape of cursor
@@ -168,8 +171,8 @@ static unsigned int rows = 24;
  * Default colour and shape of the mouse cursor
  */
 static unsigned int mouseshape = XC_xterm;
-static unsigned int mousefg =259;
-static unsigned int mousebg = 259;
+static unsigned int mousefg = 7;
+static unsigned int mousebg = 0;
 
 /*
  * Color used to display font attributes when fontconfig selected a font which
@@ -1081,14 +1084,3 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
-
-/*
- * Open urls starting with urlprefixes, contatining urlchars
- * by passing as ARG1 to urlhandler.
- */
-char* urlhandler = "xdg-open";
-char urlchars[] =
-	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	"abcdefghijklmnopqrstuvwxyz"
-	"0123456789-._~:/?#@!$&'*+,;=%";
-char* urlprefixes[] = {"http://", "https://", NULL};

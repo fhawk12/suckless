@@ -1,8 +1,0 @@
-#!/bin/sh
-
-fcitx5 &
-dunst &
-picom &
-feh --bg-fill ~/wallpaper/36.png &
-slstatus &
-

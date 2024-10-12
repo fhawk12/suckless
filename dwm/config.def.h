@@ -1,12 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
+static const char *fonts[]          = { "monospace:size=10" };
+static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -18,6 +18,11 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 	[SchemeHov]  = { col_gray4, col_cyan,  col_cyan  },
 	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+};
+
+static const char *const autostart[] = {
+	"st", NULL,
+	NULL /* terminate */
 };
 
 /* tagging */
@@ -62,45 +67,32 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *screenshot[]= { "flameshot", "gui", NULL };
-
-static const char *browsercmd[] = {"google-chrome-stable", NULL};
-static const char *music[] = {"spotify", NULL};
-static const char *proxy[] = {"clash-verge", NULL};
-static const char *qq[] = {"linuxqq", NULL};
-
-static const char *const autostart[] = {
-	"st", NULL,
-	"fcitx5", NULL,
-	"dunst", NULL,
-	"picom", NULL,
-	"slstatus", NULL,
-	"feh", "--bg-fill", "/home/fhawk//wallpaper/26.png", NULL,
-	NULL /* terminate */
-};
+static const char *termcmd2[] = { "xterm", NULL };
+static const char *browsercmd[] = {"librewolf", NULL};
+static const char *keepassxccmd[] = {"keepassxc", NULL};
+static const char *emacscmd[] = {"emacs", NULL};
 
 Autostarttag autostarttaglist[] = {
-	{.cmd = proxy, .tags = 1 << 0 },
-	{.cmd = browsercmd, .tags = 1 <<  1 },
-	{.cmd = music, .tags = 1 <<  7 },
-	{.cmd = qq, .tags = 1 << 8 },
+	{.cmd = browsercmd, .tags = 1 << 0 },
+	{.cmd = keepassxccmd, .tags = 1 << 4 },
+	{.cmd = emacscmd, .tags = 1 << 7 },
+	{.cmd = termcmd2, .tags = 1 << 8 },
 	{.cmd = NULL, .tags = 0 },
 };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_o,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_n,      focusstackvis,  {.i = +1 } },
-	{ MODKEY,                       XK_e,      focusstackvis,  {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_n,      focusstackhid,  {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_e,      focusstackhid,  {.i = -1 } },
-	{ MODKEY,                       XK_a,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      focusstackhid,  {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      focusstackhid,  {.i = -1 } },
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_i,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
@@ -117,7 +109,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_s,      show,           {0} },
 	{ MODKEY|ShiftMask,             XK_s,      showall,        {0} },
-	{ MODKEY,                       XK_u,      hide,           {0} },
+	{ MODKEY,                       XK_h,      hide,           {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
