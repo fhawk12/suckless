@@ -75,7 +75,7 @@ static const char *const autostart[] = {
 	"dunst", NULL,
 	"picom", NULL,
 	"slstatus", NULL,
-	"feh", "--bg-fill", "/home/fhawk//wallpaper/26.png", NULL,
+	"feh", "--bg-fill", "/home/fhawk//wallpaper/24.png", NULL,
 	NULL /* terminate */
 };
 

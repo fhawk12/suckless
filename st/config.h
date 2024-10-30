@@ -6,7 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "RobotoMono Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";
-static char *font = "Hack Nerd Font Mono:pixelsize=18:antialias=true:autohint=true";
+// static char *font = "Hack Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Mononoki Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
 // static char *font = "Comic Code:pixelsize=20:antialias=true:autohint=true";
 // static char *font = "Operator Mono Lig Book:pixelsize=20:antialias=true:autohint=true";
 
