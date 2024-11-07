@@ -6,10 +6,10 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 // static char *font = "RobotoMono Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";
-// static char *font = "Hack Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
-static char *font = "Mononoki Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
+static char *font = "Hack Nerd Font Mono:pixelsize=20:antialias=true:autohint=true";
+// static char *font = "Mononoki Nerd Font Mono:pixelsize=22:antialias=true:autohint=true";
 // static char *font = "Comic Code:pixelsize=20:antialias=true:autohint=true";
-// static char *font = "Operator Mono Lig Book:pixelsize=20:antialias=true:autohint=true";
+// static char *font = "Operator Mono Lig Book:pixelsize=22:antialias=true:autohint=true";
 
 static int borderpx = 2;
 
@@ -103,25 +103,37 @@ float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-    "#393552",
-    "#eb6f92",
-    "#9ccfd8",
-    "#f6c177",
-    "#3e8fb0",
-    "#c4a7e7",
-    "#ea9a97",
-    "#e0def4",
-    "#6e6a86",
-    "#eb6f92",
-    "#9ccfd8",
-    "#f6c177",
-    "#3e8fb0",
-    "#c4a7e7",
-    "#ea9a97",
-    "#e0def4",
-    [255] = 0,
-    /* more colors can be added after 255 to use with DefaultXX */
-    [256] = "#232136",
+ 	/* 8 normal colors */
+
+	[0] = "#323437",
+	[1] = "#ff5454",
+	[2] = "#8cc85f",
+	[3] = "#e3c78a",
+	[4] = "#80a0ff",
+	[5] = "#d183e8",
+	[6] = "#79dac8",
+	[7] = "#a1aab8",
+
+ 	/* 8 bright colors */
+
+	[8] = "#7c8f8f",
+	[9] = "#ff5189",
+	[10] = "#36c692",
+	[11] = "#bfbf97",
+	[12] = "#74b2ff",
+	[13] = "#ae81ff",
+	[14] = "#85dc85",
+	[15] = "#e2637f",
+ 
+ 	[255] = 0,
+
+
+ 	/* more colors can be added after 255 to use with DefaultXX */
+
+  [256] = "#282a36", 
+  [257] = "#f8f8f2",
+  [258] = "#080808",
+  [259]= "#eeeeee",
 };
 
 
@@ -129,10 +141,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 256;
-unsigned int defaultcs = 7;
-static unsigned int defaultrcs = 7;
+unsigned int defaultfg = 259;
+unsigned int defaultbg = 258;
+unsigned int defaultcs = 256;
+static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
