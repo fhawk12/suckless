@@ -64,7 +64,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const char *screenshot[]= { "flameshot", "gui", NULL };
 
-static const char *browsercmd[] = {"google-chrome-stable", NULL};
+static const char *browsercmd[] = {"zen-browser", NULL};
 static const char *music[] = {"spotify", NULL};
 static const char *proxy[] = {"clash-verge", NULL};
 static const char *qq[] = {"linuxqq", NULL};
